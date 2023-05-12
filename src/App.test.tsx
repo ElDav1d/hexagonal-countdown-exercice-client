@@ -2,8 +2,23 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-test("renders hello world", () => {
-  render(<App />);
-  const salutation = screen.getByText(/hello world/i);
-  expect(salutation).toBeInTheDocument();
+describe(App, () => {
+  it("renders the main heading", () => {
+    render(<App />);
+
+    const mainHeading = screen.getByRole("heading", {
+      level: 1,
+      name: /countdowns/i,
+    });
+
+    expect(mainHeading).toBeInTheDocument();
+  });
+
+  it("renders a table", () => {
+    render(<App />);
+
+    const table = screen.getByRole("table");
+
+    expect(table).toBeInTheDocument();
+  });
 });

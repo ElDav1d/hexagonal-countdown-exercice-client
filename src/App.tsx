@@ -6,8 +6,28 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Hello world!</h1>
+        <h1>A list of countdowns</h1>
       </header>
+      <main>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Timer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Countdown 1</td>
+              <td>DD:HH:MM:SS</td>
+            </tr>
+            <tr>
+              <td>Countdown 2</td>
+              <td>DD:HH:MM:SS</td>
+            </tr>
+          </tbody>
+        </table>
+      </main>
     </div>
   );
 }
