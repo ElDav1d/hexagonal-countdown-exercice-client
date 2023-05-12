@@ -8,8 +8,10 @@ function App() {
   return (
     <div>
       <QueryClientProvider client={queryClient}>
-        <header>
-          <h1>A list of countdowns</h1>
+        <header className="text-center">
+          <h1 className="font-bold text-5xl text-blue-600 mb-8">
+            A list of countdowns
+          </h1>
         </header>
         <main>
           <CountdownList />
