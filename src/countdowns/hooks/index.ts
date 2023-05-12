@@ -1,3 +1,4 @@
-import useCountdowns from "./useCountdowns";
+import useCountdown from "./useCountdown";
+import useCountdownQuery from "./useCountdownQuery";
 
-export { useCountdowns };
+export { useCountdownQuery, useCountdown };

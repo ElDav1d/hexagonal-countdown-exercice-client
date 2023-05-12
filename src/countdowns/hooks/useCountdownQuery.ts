@@ -2,13 +2,13 @@ import getCountdownsService from "../services/getCountdownsService";
 import { useQuery } from "@tanstack/react-query";
 import { ICountdown } from "../interfaces/countdowns";
 
-export interface UseCountdownsReturn {
+export interface useCountdownQueryReturn {
   countdowns: ICountdown[];
   isError: boolean;
   isFetching: boolean;
 }
 
-const useCountdowns = (): UseCountdownsReturn => {
+const useCountdownQuery = (): useCountdownQueryReturn => {
   const { isError, data, isFetching } = useQuery(
     ["countdowns"],
     () => getCountdownsService(),
@@ -24,4 +24,4 @@ const useCountdowns = (): UseCountdownsReturn => {
   };
 };
 
-export default useCountdowns;
+export default useCountdownQuery;

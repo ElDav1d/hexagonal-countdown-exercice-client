@@ -1,7 +1,8 @@
-import { useCountdowns } from "../hooks";
+import { CountdownItem } from "../CountdownItem/CountdownItem";
+import { useCountdownQuery } from "../hooks";
 
 export const CountdownList = () => {
-  const { countdowns, isError, isFetching } = useCountdowns();
+  const { countdowns, isError, isFetching } = useCountdownQuery();
 
   return (
     <>
@@ -17,12 +18,7 @@ export const CountdownList = () => {
           </thead>
           <tbody>
             {countdowns.map((item) => (
-              <tr key={item._id} className="border-b border-blue-200">
-                <td className="p-2 md:p-4 lg:p-6">{item.name}</td>
-                <td className="p-2 md:p-4 lg:p-6">
-                  {item.date.toLocaleString()}
-                </td>
-              </tr>
+              <CountdownItem key={item._id} item={item} />
             ))}
           </tbody>
         </table>

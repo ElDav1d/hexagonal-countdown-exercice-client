@@ -3,22 +3,27 @@ import { render, screen } from "@testing-library/react";
 import MockCountdowns from "../mocks/mock-countdowns.json";
 import { CountdownList } from "../CountdownList/CountdownList";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useCountdowns } from "../hooks";
+import { useCountdownQuery, useCountdown } from "../hooks";
 
 const queryClient = new QueryClient();
 
 jest.mock("../hooks");
 
-const mockUseCountdowns = useCountdowns as jest.Mock;
+const mockuseCountdownQuery = useCountdownQuery as jest.Mock;
+const mockUseCountdown = useCountdown as jest.Mock;
 
 describe(CountdownList, () => {
-  it("renders a table", () => {
-    mockUseCountdowns.mockReturnValue({
+  beforeEach(() => {
+    mockUseCountdown.mockReturnValue([0, 0, 0, 0]);
+
+    mockuseCountdownQuery.mockReturnValue({
       isFetching: false,
       isError: false,
       countdowns: MockCountdowns,
     });
+  });
 
+  it("renders a table", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <CountdownList />
@@ -31,12 +36,6 @@ describe(CountdownList, () => {
   });
 
   it("renders countdown items", () => {
-    mockUseCountdowns.mockReturnValue({
-      isFetching: false,
-      isError: false,
-      countdowns: MockCountdowns,
-    });
-
     render(
       <QueryClientProvider client={queryClient}>
         <CountdownList />

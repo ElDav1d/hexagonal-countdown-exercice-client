@@ -10,7 +10,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <header className="text-center">
           <h1 className="font-bold text-5xl text-blue-600 mb-8">
-            A list of countdowns
+            A list of countdowns to 2024
           </h1>
         </header>
         <main>
