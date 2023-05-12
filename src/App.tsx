@@ -14,7 +14,9 @@ function App() {
           </h1>
         </header>
         <main>
-          <CountdownList />
+          <section className="px-2 md:px-4 lg:px-12">
+            <CountdownList />
+          </section>
         </main>
         <ReactQueryDevtools />
       </QueryClientProvider>
