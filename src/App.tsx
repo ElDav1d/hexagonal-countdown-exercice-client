@@ -1,8 +1,21 @@
-import React from "react";
-import logo from "./logo.svg";
+import { useEffect } from "react";
 import "./App.css";
+import { getCountdowns } from "./data";
 
 function App() {
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    try {
+      const result = await getCountdowns();
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="App">
       <header>
